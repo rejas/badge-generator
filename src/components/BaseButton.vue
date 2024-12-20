@@ -8,5 +8,5 @@
 export default {
   name: 'BaseButton',
   props: ['label', 'onClick'],
-};
+}
 </script>

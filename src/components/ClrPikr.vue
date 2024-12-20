@@ -19,9 +19,9 @@
 
 <script lang="ts">
 // https://github.com/v-comp/v-color/blob/master/demo.js
-import ColorPicker from 'v-color';
+import ColorPicker from 'v-color'
 
-const componentName = 'ClrPikr';
+const componentName = 'ClrPikr'
 export default {
   name: componentName,
   components: {
@@ -53,7 +53,7 @@ export default {
       type: Function,
     },
   },
-};
+}
 </script>
 
 <style lang="less">

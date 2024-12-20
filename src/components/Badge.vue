@@ -124,10 +124,7 @@
           backgroundSize: data.icon.size,
           backgroundPosition: `${data.icon.x} ${data.icon.y}`,
         }"
-        v-bind:class="[
-          'badge__icon__img',
-          `badge__icon__img--${data.icon.style}`,
-        ]"
+        v-bind:class="['badge__icon__img', `badge__icon__img--${data.icon.style}`]"
       ></div>
     </div>
     <div class="badge__label">
@@ -153,7 +150,7 @@
 </template>
 
 <script>
-const componentName = 'Badge';
+const componentName = 'Badge'
 export default {
   name: componentName,
   props: {
@@ -226,74 +223,74 @@ export default {
   },
   computed: {
     badgeIcon() {
-      return this.data.icon;
+      return this.data.icon
     },
   },
   methods: {
     containIcon() {
-      this.badgeIcon.size = this.badgeIcon.size === '' ? 'contain' : '';
+      this.badgeIcon.size = this.badgeIcon.size === '' ? 'contain' : ''
     },
     resizeIcon(event) {
       // default: iconSize: contain;
-      const deltaY = event.deltaY;
+      const deltaY = event.deltaY
       const actualSize = parseInt(
         this.badgeIcon.size === 'contain' || this.badgeIcon.size === ''
           ? '100%'
-          : this.badgeIcon.size
-      );
+          : this.badgeIcon.size,
+      )
       // up -> bigger
       if (deltaY > 0) {
-        this.badgeIcon.size = actualSize + 10 + '%';
+        this.badgeIcon.size = actualSize + 10 + '%'
         // down -> smaller
       } else {
-        this.badgeIcon.size = actualSize - 10 + '%';
+        this.badgeIcon.size = actualSize - 10 + '%'
       }
     },
     setIconOrigin(event) {
       // top - center - bottom
       // default: backgroundPosition: top center;
-      const direction = event.code;
-      const currentPosX = this.badgeIcon.x;
-      const currentPosY = this.badgeIcon.y;
-      let nextPosX = '';
-      let nextPosY = '';
+      const direction = event.code
+      const currentPosX = this.badgeIcon.x
+      const currentPosY = this.badgeIcon.y
+      let nextPosX = ''
+      let nextPosY = ''
 
       switch (direction) {
         case 'ArrowUp':
-          nextPosY = 'top';
+          nextPosY = 'top'
           if (currentPosY === 'bottom') {
-            nextPosY = 'center';
+            nextPosY = 'center'
           }
-          break;
+          break
         case 'ArrowDown':
           if (currentPosY === 'top') {
-            nextPosY = 'center';
+            nextPosY = 'center'
           } else if (currentPosY === 'center') {
-            nextPosY = 'bottom';
+            nextPosY = 'bottom'
           }
-          break;
+          break
         case 'ArrowRight':
           if (currentPosX === 'left') {
-            nextPosX = 'center';
+            nextPosX = 'center'
           } else if (currentPosX === 'center') {
-            nextPosX = 'right';
+            nextPosX = 'right'
           }
-          break;
+          break
         case 'ArrowLeft':
-          nextPosX = 'left';
+          nextPosX = 'left'
           if (currentPosX === 'right') {
-            nextPosX = 'center';
+            nextPosX = 'center'
           }
-          break;
+          break
       }
 
       if (nextPosX !== '') {
-        this.badgeIcon.x = nextPosX;
+        this.badgeIcon.x = nextPosX
       }
       if (nextPosY !== '') {
-        this.badgeIcon.y = nextPosY;
+        this.badgeIcon.y = nextPosY
       }
     },
   },
-};
+}
 </script>

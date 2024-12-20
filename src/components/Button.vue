@@ -8,5 +8,5 @@
 export default {
   name: 'Button',
   props: ['label', 'onClick'],
-};
+}
 </script>

@@ -6,14 +6,14 @@
 </template>
 
 <script lang="ts">
-import OverVue from './components/Over.vue';
+import OverVue from './components/Over.vue'
 
 export default {
   name: 'app',
   components: {
     OverVue,
   },
-};
+}
 </script>
 
 <style lang="less">

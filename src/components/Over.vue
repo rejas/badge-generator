@@ -161,24 +161,13 @@
         Format:
         <select class="neo-select" v-model="docsizeFormat">
           <option>Bitte wählen</option>
-          <option
-            v-for="(label, index) in defaults.docsizeFormats"
-            :key="index"
-          >
+          <option v-for="(label, index) in defaults.docsizeFormats" :key="index">
             {{ label }}
           </option>
         </select>
       </label>
-      <BaseCheckbox
-        class="mb-1 w-1/2 md:w-1/4"
-        label="Border visible"
-        v-model="showBorder"
-      />
-      <BaseCheckbox
-        class="mb-1 w-1/2 md:w-1/4"
-        label="Badges unique"
-        v-model="uniqueBadges"
-      />
+      <BaseCheckbox class="mb-1 w-1/2 md:w-1/4" label="Border visible" v-model="showBorder" />
+      <BaseCheckbox class="mb-1 w-1/2 md:w-1/4" label="Badges unique" v-model="uniqueBadges" />
       <BaseButton label="Print" v-bind:onClick="printView" />
     </div>
     <div class="hidden print:block">Be aware of 100% scaling.</div>
@@ -186,9 +175,7 @@
       v-bind:class="[
         'overvue__badges',
         'mx-auto',
-        `docsize docsize--${docsize}${
-          docsizeFormat === 'landscape' ? '--' + docsizeFormat : ''
-        }`,
+        `docsize docsize--${docsize}${docsizeFormat === 'landscape' ? '--' + docsizeFormat : ''}`,
       ]"
     >
       <div class="overvue__badge" v-for="(data, key) in badges" :key="key">
@@ -202,10 +189,7 @@
               class="overvue__badge__duplicate-btn fas fa-plus-circle"
               v-on:click="duplicate(key)"
             />
-            <i
-              class="overvue__badge__remove-btn fas fa-times-circle"
-              v-on:click="remove(key)"
-            />
+            <i class="overvue__badge__remove-btn fas fa-times-circle" v-on:click="remove(key)" />
           </span>
 
           <span class="overvue__badge__edit-bar">
@@ -252,10 +236,7 @@
                 <i
                   title="icon style"
                   class="overvue__badge__sub-bar__icon-style fas"
-                  v-bind:class="[
-                    'active',
-                    `fa-${faClassName(data.icon.style)}`,
-                  ]"
+                  v-bind:class="['active', `fa-${faClassName(data.icon.style)}`]"
                   v-on:click="iconStyle(key)"
                 />
               </span>
@@ -289,34 +270,31 @@
           />
         </div>
       </div>
-      <i
-        class="overvue__badges__add-button fas fa-plus-circle print:hidden"
-        v-on:click="add()"
-      />
+      <i class="overvue__badges__add-button fas fa-plus-circle print:hidden" v-on:click="add()" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import ClrPikr from './ClrPikr.vue';
-import Badge from './Badge.vue';
-import BaseButton from './BaseButton.vue';
-import BaseCheckbox from './BaseCheckbox.vue';
+import ClrPikr from './ClrPikr.vue'
+import Badge from './Badge.vue'
+import BaseButton from './BaseButton.vue'
+import BaseCheckbox from './BaseCheckbox.vue'
 
 function copy(o) {
   // copy object or array
-  let v, key;
-  const output = Array.isArray(o) ? [] : {};
+  let v, key
+  const output = Array.isArray(o) ? [] : {}
 
   for (key in o) {
-    v = o[key];
+    v = o[key]
     if (v) {
-      output[key] = typeof v === 'object' ? copy(v) : v;
+      output[key] = typeof v === 'object' ? copy(v) : v
     } else {
-      output[key] = v;
+      output[key] = v
     }
   }
-  return output;
+  return output
 }
 
 export default {
@@ -368,17 +346,17 @@ export default {
           },
         },
       ],
-    };
+    }
   },
   methods: {
     onChange(type, data, index) {
       switch (type) {
         case 'label':
-          this.badges[index].label.value = data;
-          break;
+          this.badges[index].label.value = data
+          break
         case 'isEditMode':
-          this.badges[index].isEditMode = data;
-          break;
+          this.badges[index].isEditMode = data
+          break
       }
     },
 
@@ -399,89 +377,89 @@ export default {
           value: 'Neu',
           clr: '#000',
         },
-      });
+      })
     },
     duplicate(lastKey) {
       // edit one change all
-      let data = this.badges[lastKey];
+      let data = this.badges[lastKey]
       // unique badges
       if (this.uniqueBadges) {
-        data = copy(this.badges[lastKey]);
+        data = copy(this.badges[lastKey])
       }
-      data.isEditMode = false;
-      this.badges.splice(lastKey + 1, 0, data);
+      data.isEditMode = false
+      this.badges.splice(lastKey + 1, 0, data)
     },
     remove(index) {
-      this.badges.splice(index, 1);
+      this.badges.splice(index, 1)
     },
 
     badgeStyle(index) {
-      const size = this.badges[index].badge.size;
-      this.badges[index].badge.size = size === 'small' ? 'big' : 'small';
+      const size = this.badges[index].badge.size
+      this.badges[index].badge.size = size === 'small' ? 'big' : 'small'
     },
 
     toggleEdit(index, isEditMode) {
-      this.badges[index].isEditMode = isEditMode;
+      this.badges[index].isEditMode = isEditMode
 
       if (!isEditMode) {
-        this.badges[index].showClrPicker = '';
+        this.badges[index].showClrPicker = ''
       }
     },
     printView() {
-      window.print();
+      window.print()
     },
     triggerUpload() {
-      this.$refs.fileInput[0].click();
+      this.$refs.fileInput[0].click()
     },
     image(event, index) {
-      const reader = new FileReader();
-      const files = event.target.files; // FileList object
-      const file = files[0];
+      const reader = new FileReader()
+      const files = event.target.files // FileList object
+      const file = files[0]
 
       reader.addEventListener(
         'load',
         () => {
-          this.setImage(index, reader.result);
+          this.setImage(index, reader.result)
         },
-        false
-      );
+        false,
+      )
 
       if (file) {
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(file)
       }
     },
     setImage(index, base64) {
       // 'data:' + file.type + ';base64,' +
-      this.badges[index].icon.base64 = base64;
+      this.badges[index].icon.base64 = base64
     },
 
     faClassName(iconStyle) {
       const foundStyle = this.defaults.styles.filter((style) => {
-        return style.name === iconStyle;
-      })[0];
-      return foundStyle.fa;
+        return style.name === iconStyle
+      })[0]
+      return foundStyle.fa
     },
     iconStyle(index) {
-      const styles = this.defaults.styles;
-      const actualStyle = this.badges[index].icon.style;
-      let actualStyleIndex = 0;
+      const styles = this.defaults.styles
+      const actualStyle = this.badges[index].icon.style
+      let actualStyleIndex = 0
       this.defaults.styles.map((style, index) => {
         if (style.name === actualStyle) {
-          actualStyleIndex = index;
+          actualStyleIndex = index
         }
-      });
-      const nextStyle = styles[actualStyleIndex + 1] || styles[0];
+      })
+      const nextStyle = styles[actualStyleIndex + 1] || styles[0]
       // iterate through styles
-      this.badges[index].icon.style = nextStyle.name;
+      this.badges[index].icon.style = nextStyle.name
     },
 
     toggleClrPicker(index, type) {
-      const activeType = this.badges[index].showClrPicker;
-      this.badges[index].showClrPicker = activeType !== type ? type : '';
+      const activeType = this.badges[index].showClrPicker
+      this.badges[index].showClrPicker = activeType !== type ? type : ''
     },
     changeClr(event, index, type) {
-      this.badges[index][type].clr = event.hex;
+      this.badges[index][type].clr = event.hex
     },
   },
-};
+}
 </script>
