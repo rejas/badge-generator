@@ -1,17 +1,12 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+  ],
   theme: {
     fontFamily: {
       neo: ['Camingo', 'Tahoma', 'Arial'],
-    },
-    fontSize: {
-      base: '1.125rem',
-      lg: '1.25rem',
-      xl: '1.5rem',
-      '2xl': '1.75rem',
-      '6xl': '4.25rem',
-      ...defaultTheme.fontSize,
     },
     extend: {
       colors: {
@@ -20,6 +15,13 @@ module.exports = {
         'neo-grey': '#969191',
         'neo-red': '#E60023',
       },
+      fontSize: {
+        base: '1.125rem',
+        lg: '1.25rem',
+        xl: '1.5rem',
+        '2xl': '1.75rem',
+        '6xl': '4.25rem',
+},
       screens: {
         print: { raw: 'print' },
         // => @media  print { ... }

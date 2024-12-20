@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <h1 class="text-center print:hidden">Neofonie Badge Generator</h1>
-    <Overvue />
+    <OverVue />
   </div>
 </template>
 
-<script>
-import Overvue from './components/Over.vue';
+<script lang="ts">
+import OverVue from './components/Over.vue';
 
 export default {
   name: 'app',
   components: {
-    Overvue,
+    OverVue,
   },
 };
 </script>

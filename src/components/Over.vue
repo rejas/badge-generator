@@ -169,17 +169,17 @@
           </option>
         </select>
       </label>
-      <Checkbox
+      <BaseCheckbox
         class="mb-1 w-1/2 md:w-1/4"
         label="Border visible"
         v-model="showBorder"
       />
-      <Checkbox
+      <BaseCheckbox
         class="mb-1 w-1/2 md:w-1/4"
         label="Badges unique"
         v-model="uniqueBadges"
       />
-      <Button label="Print" v-bind:onClick="printView" />
+      <BaseButton label="Print" v-bind:onClick="printView" />
     </div>
     <div class="hidden print:block">Be aware of 100% scaling.</div>
     <div
@@ -297,16 +297,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import ClrPikr from './ClrPikr.vue';
 import Badge from './Badge.vue';
-import Button from './Button';
-import Checkbox from './Checkbox';
+import BaseButton from './BaseButton.vue';
+import BaseCheckbox from './BaseCheckbox.vue';
 
 function copy(o) {
   // copy object or array
-  let output, v, key;
-  output = Array.isArray(o) ? [] : {};
+  let v, key;
+  const output = Array.isArray(o) ? [] : {};
 
   for (key in o) {
     v = o[key];
@@ -320,10 +320,10 @@ function copy(o) {
 }
 
 export default {
-  name: 'Overvue',
+  name: 'OverVue',
   components: {
-    Checkbox,
-    Button,
+    BaseCheckbox,
+    BaseButton,
     Badge,
     ClrPikr,
   },

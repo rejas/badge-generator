@@ -17,9 +17,9 @@
   </span>
 </template>
 
-<script>
+<script lang="ts">
 // https://github.com/v-comp/v-color/blob/master/demo.js
-import ColorPicker from '../../node_modules/v-color/dist/index.esm';
+import ColorPicker from 'v-color';
 
 const componentName = 'ClrPikr';
 export default {
