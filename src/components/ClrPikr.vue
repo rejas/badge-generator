@@ -17,7 +17,7 @@
   </span>
 </template>
 
-<script lang="ts">
+<script lang="js">
 // https://github.com/v-comp/v-color/blob/master/demo.js
 import ColorPicker from 'v-color'
 

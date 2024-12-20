@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import OverVue from './components/Over.vue'
 
 export default {
@@ -35,8 +35,7 @@ body {
   }
 
   body {
-    -webkit-print-color-adjust: exact !important;
-    color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 }
 

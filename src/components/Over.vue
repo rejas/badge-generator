@@ -275,7 +275,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import ClrPikr from './ClrPikr.vue'
 import Badge from './Badge.vue'
 import BaseButton from './BaseButton.vue'

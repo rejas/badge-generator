@@ -149,7 +149,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 const componentName = 'Badge'
 export default {
   name: componentName,
