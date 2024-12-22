@@ -1,5 +1,5 @@
 <template>
-  <label class="neo-checkbox checkbox__container neo-checkbox">
+  <label class="neo-checkbox checkbox__container">
     {{ label }}
     <input type="checkbox" :checked="value" @change="$emit('change', $event.target.checked)" />
     <span class="checkmark" />

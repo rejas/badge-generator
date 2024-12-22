@@ -23,30 +23,23 @@
 
 /* semantic color variables for this project */
 :root {
+  --base: 16px;
+  --base-half: calc(var(--base) / 2);
+  --base-quarter: calc(var(--base) / 4);
+  --base-double: calc(var(--base) * 2.5);
+  --font: var(--base);
+  --font-big: calc(var(--font) * 1.5);
+  --font-bigger: calc(var(--font) * 3);
+  --clr-black: #000;
+  --clr-red: #e60023;
+  --clr-grey: #ccc;
+
   --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
-
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
+  --color-text: var(--vt-c-text-dark-2);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
   }
 }
 
@@ -55,7 +48,7 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  font-weight: normal;
+  //font-weight: normal;
 }
 
 body {
@@ -83,4 +76,10 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media print {
+  body {
+    print-color-adjust: exact !important;
+  }
 }
