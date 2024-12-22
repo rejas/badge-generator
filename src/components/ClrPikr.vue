@@ -17,9 +17,9 @@
   </span>
 </template>
 
-<script lang="js">
-// https://github.com/v-comp/v-color/blob/master/demo.js
-import ColorPicker from 'v-color'
+<script>
+import { ColorPicker } from 'vue3-colorpicker'
+import 'vue3-colorpicker/style.css'
 
 const componentName = 'ClrPikr'
 export default {

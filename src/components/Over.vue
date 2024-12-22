@@ -1,6 +1,4 @@
 <style lang="less">
-@import (less) '../../node_modules/v-color/dist/index.css';
-
 @selector: .overvue;
 @{selector} {
   &__badges {

@@ -22,9 +22,8 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "v-color": "^1.1.2",
     "vue": "^3.5.13",
-    "vue-wheel": "^1.1.1"
+    "vue3-colorpicker": "^2.3.0"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.0",
