@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
+import process from 'node:process'
 
 // https://vite.dev/config/
 export default defineConfig({
