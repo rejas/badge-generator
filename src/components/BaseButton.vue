@@ -4,7 +4,7 @@
   </button>
 </template>
 
-<script lang="js">
+<script>
 export default {
   name: 'BaseButton',
   props: ['label', 'onClick'],

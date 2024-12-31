@@ -1,104 +1,3 @@
-<style lang="less">
-@selector: .badge;
-@{selector} {
-  overflow: hidden;
-  display: flex;
-  justify-items: flex-start;
-  align-items: center;
-  border: solid 1px var(--clr-black);
-
-  &__icon {
-    height: 100%;
-    padding: var(--base-quarter);
-
-    &__img {
-      display: block;
-      height: 100%;
-      background-repeat: no-repeat;
-
-      // https://bennettfeely.com/clippy/
-      &--circle {
-        clip-path: circle(49% at center);
-        //clip-path: circle(50% at 50% 50%);
-      }
-
-      &--triangle {
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-      }
-
-      &--round {
-        border-radius: 33%;
-      }
-
-      &--rhombus {
-        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-      }
-
-      &--star {
-        clip-path: polygon(
-          50% 0%,
-          61% 35%,
-          98% 35%,
-          68% 57%,
-          79% 91%,
-          50% 70%,
-          21% 91%,
-          32% 57%,
-          2% 35%,
-          39% 35%
-        );
-      }
-    }
-  }
-
-  &__label {
-    padding-left: var(--base-quarter);
-
-    &__input {
-      font-size: inherit;
-      width: 100%;
-      border: 0;
-      background: var(--clr-grey);
-    }
-  }
-
-  &--without-border {
-    border-color: transparent;
-  }
-
-  &,
-  &--small {
-    width: 6cm;
-    height: 1.2cm;
-
-    @{selector} {
-      &__icon__img {
-        width: 35px;
-      }
-
-      &__label {
-        font-size: 36px;
-      }
-    }
-  }
-
-  &--big {
-    width: 6cm;
-    height: 1.7cm;
-
-    @{selector} {
-      &__icon__img {
-        width: 54px;
-      }
-
-      &__label {
-        font-size: 52px;
-      }
-    }
-  }
-}
-</style>
-
 <template>
   <div
     v-bind:class="[
@@ -149,7 +48,7 @@
   </div>
 </template>
 
-<script lang="js">
+<script>
 const componentName = 'Badge'
 export default {
   name: componentName,
@@ -294,3 +193,103 @@ export default {
   },
 }
 </script>
+<style lang="less">
+@selector: .badge;
+@{selector} {
+  overflow: hidden;
+  display: flex;
+  justify-items: flex-start;
+  align-items: center;
+  border: solid 1px var(--clr-black);
+
+  &__icon {
+    height: 100%;
+    padding: var(--base-quarter);
+
+    &__img {
+      display: block;
+      height: 100%;
+      background-repeat: no-repeat;
+
+      // https://bennettfeely.com/clippy/
+      &--circle {
+        clip-path: circle(49% at center);
+        //clip-path: circle(50% at 50% 50%);
+      }
+
+      &--triangle {
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      }
+
+      &--round {
+        border-radius: 33%;
+      }
+
+      &--rhombus {
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      }
+
+      &--star {
+        clip-path: polygon(
+          50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%
+        );
+      }
+    }
+  }
+
+  &__label {
+    padding-left: var(--base-quarter);
+
+    &__input {
+      font-size: inherit;
+      width: 100%;
+      border: 0;
+      background: var(--clr-grey);
+    }
+  }
+
+  &--without-border {
+    border-color: transparent;
+  }
+
+  &,
+  &--small {
+    width: 6cm;
+    height: 1.2cm;
+
+    @{selector} {
+      &__icon__img {
+        width: 35px;
+      }
+
+      &__label {
+        font-size: 36px;
+      }
+    }
+  }
+
+  &--big {
+    width: 6cm;
+    height: 1.7cm;
+
+    @{selector} {
+      &__icon__img {
+        width: 54px;
+      }
+
+      &__label {
+        font-size: 52px;
+      }
+    }
+  }
+}
+</style>

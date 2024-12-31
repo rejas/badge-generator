@@ -1,148 +1,3 @@
-<style lang="less">
-@selector: .overvue;
-@{selector} {
-  &__badges {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    position: relative;
-    padding-top: var(--base);
-    padding-bottom: calc(var(--font-bigger) + var(--base));
-
-    &__add-button {
-      color: var(--clr-red);
-      font-size: var(--font-bigger);
-      margin: var(--base-half);
-    }
-  }
-
-  &__badge {
-    &__wrap {
-      display: block;
-      position: relative;
-    }
-
-    &__edit-bar {
-      white-space: nowrap;
-      user-select: none;
-      position: absolute;
-      z-index: 1;
-      left: var(--base-quarter);
-      bottom: var(--base-quarter);
-      visibility: hidden;
-
-      @{selector}__badge__wrap:hover & {
-        visibility: visible;
-      }
-
-      &--right {
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        bottom: 0;
-        right: var(--base-quarter);
-        visibility: hidden;
-
-        @{selector}__badge__wrap:hover & {
-          visibility: visible;
-        }
-      }
-    }
-
-    &__sub-bar {
-      position: absolute;
-      top: 21px;
-      left: -4px;
-      padding: var(--base-quarter);
-      display: flex;
-      align-items: center;
-      background: #fff;
-      border: solid 1px #000;
-      border-top: 0;
-      justify-content: space-between;
-
-      &__spacer {
-        padding: 0 var(--base-quarter);
-      }
-
-      &__icon-style {
-        width: 24px;
-        text-align: center;
-        margin-right: var(--base-quarter);
-      }
-    }
-
-    .fas {
-      &.active {
-        color: var(--clr-red);
-      }
-
-      font-size: var(--font);
-    }
-
-    &__remove-btn {
-      position: absolute;
-      right: 0;
-      top: var(--base-quarter);
-    }
-
-    &__duplicate-btn {
-      position: absolute;
-      right: 0;
-      bottom: var(--base-quarter);
-      color: var(--clr-red);
-    }
-  }
-
-  .docsize {
-    border: solid 1px var(--clr-grey);
-    margin-top: var(--base);
-    padding-top: 0;
-
-    &--A2 {
-      width: 42cm;
-      height: 59.4cm;
-
-      &--landscape {
-        width: 59.4cm;
-        height: 42cm;
-      }
-    }
-
-    &--A3 {
-      width: 29.7cm;
-      height: 42cm;
-
-      &--landscape {
-        width: 42cm;
-        height: 29.7cm;
-      }
-    }
-
-    &--A4 {
-      width: 21cm;
-      height: 29.7cm;
-
-      &--landscape {
-        width: 29.7cm;
-        height: 21cm;
-      }
-    }
-
-    &--A5 {
-      width: 14.8cm;
-      height: 21cm;
-
-      &--landscape {
-        width: 21cm;
-        height: 14.8cm;
-      }
-    }
-  }
-}
-</style>
-
 <template>
   <div class="overvue container mx-auto">
     <div class="flex flex-row flex-wrap justify-around p-2 print:hidden">
@@ -277,7 +132,7 @@
   </div>
 </template>
 
-<script lang="js">
+<script>
 import ClrPikr from './ClrPikr.vue'
 import Badge from './Badge.vue'
 import BaseButton from './BaseButton.vue'
@@ -465,3 +320,147 @@ export default {
   },
 }
 </script>
+<style lang="less">
+@selector: .overvue;
+@{selector} {
+  &__badges {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    position: relative;
+    padding-top: var(--base);
+    padding-bottom: calc(var(--font-bigger) + var(--base));
+
+    &__add-button {
+      color: var(--clr-red);
+      font-size: var(--font-bigger);
+      margin: var(--base-half);
+    }
+  }
+
+  &__badge {
+    &__wrap {
+      display: block;
+      position: relative;
+    }
+
+    &__edit-bar {
+      white-space: nowrap;
+      user-select: none;
+      position: absolute;
+      z-index: 1;
+      left: var(--base-quarter);
+      bottom: var(--base-quarter);
+      visibility: hidden;
+
+      @{selector}__badge__wrap:hover & {
+        visibility: visible;
+      }
+
+      &--right {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        bottom: 0;
+        right: var(--base-quarter);
+        visibility: hidden;
+
+        @{selector}__badge__wrap:hover & {
+          visibility: visible;
+        }
+      }
+    }
+
+    &__sub-bar {
+      position: absolute;
+      top: 21px;
+      left: -4px;
+      padding: var(--base-quarter);
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border: solid 1px #000;
+      border-top: 0;
+      justify-content: space-between;
+
+      &__spacer {
+        padding: 0 var(--base-quarter);
+      }
+
+      &__icon-style {
+        width: 24px;
+        text-align: center;
+        margin-right: var(--base-quarter);
+      }
+    }
+
+    .fas {
+      &.active {
+        color: var(--clr-red);
+      }
+
+      font-size: var(--font);
+    }
+
+    &__remove-btn {
+      position: absolute;
+      right: 0;
+      top: var(--base-quarter);
+    }
+
+    &__duplicate-btn {
+      position: absolute;
+      right: 0;
+      bottom: var(--base-quarter);
+      color: var(--clr-red);
+    }
+  }
+
+  .docsize {
+    border: solid 1px var(--clr-grey);
+    margin-top: var(--base);
+    padding-top: 0;
+
+    &--A2 {
+      width: 42cm;
+      height: 59.4cm;
+
+      &--landscape {
+        width: 59.4cm;
+        height: 42cm;
+      }
+    }
+
+    &--A3 {
+      width: 29.7cm;
+      height: 42cm;
+
+      &--landscape {
+        width: 42cm;
+        height: 29.7cm;
+      }
+    }
+
+    &--A4 {
+      width: 21cm;
+      height: 29.7cm;
+
+      &--landscape {
+        width: 29.7cm;
+        height: 21cm;
+      }
+    }
+
+    &--A5 {
+      width: 14.8cm;
+      height: 21cm;
+
+      &--landscape {
+        width: 21cm;
+        height: 14.8cm;
+      }
+    }
+  }
+}
+</style>

@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script lang="js">
+<script>
 import OverVue from './components/Over.vue'
 
 export default {
