@@ -1,20 +1,38 @@
 <template>
-  <label class="neo-checkbox checkbox__container">
+  <label :for="id" class="neo-checkbox checkbox__container">
     {{ label }}
-    <input type="checkbox" :checked="value" @change="$emit('change', $event.target.checked)" />
-    <span class="checkmark" />
+    <input :id="id" type="checkbox" :checked="modelValue" @change="onChange" />
+    <span class="checkmark"></span>
   </label>
 </template>
 
-<script lang="js">
+<script>
 export default {
   name: 'BaseCheckbox',
 
-  model: {
-    event: 'change',
+  props: {
+    label: {
+      type: String,
+      required: true,
+    },
+    modelValue: {
+      type: Boolean,
+      required: true,
+    },
+    id: {
+      type: String,
+      required: false,
+      default: () => `checkbox-${Math.random().toString(36).substr(2, 9)}`, // Generates a unique ID if none is provided
+    },
   },
 
-  props: ['label', 'value'],
+  emits: ['update:modelValue'],
+
+  methods: {
+    onChange(event) {
+      this.$emit('update:modelValue', event.target.checked)
+    },
+  },
 }
 </script>
 

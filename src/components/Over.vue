@@ -164,8 +164,18 @@
           </option>
         </select>
       </label>
-      <BaseCheckbox class="mb-1 w-1/2 md:w-1/4" label="Border visible" v-model="showBorder" />
-      <BaseCheckbox class="mb-1 w-1/2 md:w-1/4" label="Badges unique" v-model="uniqueBadges" />
+      <BaseCheckbox
+        class="mb-1 w-1/2 md:w-1/4"
+        label="Border visible"
+        :value="true"
+        v-model="showBorder"
+      />
+      <BaseCheckbox
+        class="mb-1 w-1/2 md:w-1/4"
+        label="Badges unique"
+        :value="true"
+        v-model="uniqueBadges"
+      />
       <BaseButton label="Print" v-bind:onClick="printView" />
     </div>
     <div class="hidden print:block">Be aware of 100% scaling.</div>
@@ -177,11 +187,7 @@
       ]"
     >
       <div class="overvue__badge" v-for="(data, key) in badges" :key="key">
-        <div
-          class="overvue__badge__wrap"
-          v-on:mouseover="toggleEdit(key, true)"
-          v-on:mouseleave="toggleEdit(key, false)"
-        >
+        <div class="overvue__badge__wrap" v-on:mouseover="toggleEdit(key, true)">
           <span class="overvue__badge__edit-bar--right">
             <i
               class="overvue__badge__duplicate-btn fas fa-plus-circle"
@@ -189,7 +195,6 @@
             />
             <i class="overvue__badge__remove-btn fas fa-times-circle" v-on:click="remove(key)" />
           </span>
-
           <span class="overvue__badge__edit-bar">
             <i
               class="overvue__badge__edit-btn fas fa-pen-square"
@@ -259,7 +264,6 @@
               />
             </span>
           </span>
-
           <Badge
             v-bind:index="key"
             v-bind:showBorder="showBorder"
